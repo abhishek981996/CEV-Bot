@@ -1,1 +1,1 @@
-#EVENT Notifictaion bot
+## EVENT Email Notifictaion bot
