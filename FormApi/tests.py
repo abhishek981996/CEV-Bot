@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 import json
 from django.test import TestCase
-import Constant
+import FormApi.Constant
 from django.test.client import RequestFactory
 import requests
 
