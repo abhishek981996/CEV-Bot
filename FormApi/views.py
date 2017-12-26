@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 import json
 from django.shortcuts import render
 from django.http import HttpResponse
-from models import Users,Context_for_year
-import Constant 
+from FormApi.models import Users,Context_for_year
+import FormApi.Constant 
 from django.views.decorators.csrf import csrf_exempt
 from form import SendEmailForm,UsersForm
 from django.shortcuts import render,redirect
