@@ -4,7 +4,7 @@ import json
 from django.shortcuts import render
 from django.http import HttpResponse
 from FormApi.models import Users,Context_for_year
-import FormApi.Constant 
+from FormApi import Constant 
 from django.views.decorators.csrf import csrf_exempt
 from FormApi.form import SendEmailForm,UsersForm
 from django.shortcuts import render,redirect
