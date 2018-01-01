@@ -33,7 +33,6 @@ def Login(request):
 	else:
 		return render(request,"login.html")
 		
-	data = json.loads(request.body)	
 	# try:
 	# 	username = str(data[Constant.Username])
 	# except:
