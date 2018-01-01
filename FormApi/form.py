@@ -20,9 +20,19 @@ class SendEmailForm(forms.Form):
         	'body':_("Body"),
         	"sorting":_("Send_Email_To")
         }
+# class UserForm(forms.ModelForm):
+#     def __init__(self, *args, **kwargs):
+#         super(UserForm, self).__init__(*args, **kwargs)
+#         self.fields['first_name'].required = True
+#         self.fields['last_name'].required = True
+#         self.fields['email'].required = True
+
+#     class Meta:
+#         model = User
+#         exclude = ['username', 'password', 'date_joined']
 
 class UsersForm(forms.ModelForm):
-	class meta:
+	class Meta:
 		model = Users
 		fields = '__all__'
 		labels = {
@@ -32,6 +42,9 @@ class UsersForm(forms.ModelForm):
 			"Email":_("Email"),
 			"Phone":_("Phone no")
 		}
+
+class UploadFileForm(forms.Form):
+    file = forms.FileField(required=True)
 
 
     

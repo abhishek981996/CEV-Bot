@@ -17,13 +17,16 @@ Context_for_year = (
 	(4,"Fourth"),
 	(5,"Fifth")
 	)
+
 class Users(models.Model):
-    UserName = models.CharField(verbose_name='User Name',max_length=254,null=True,blank=True)
+    UserName = models.CharField(verbose_name='UserName',max_length=254,null=True,blank=True)
     Year = models.IntegerField(null=False,choices=Context_for_year,default=0)
     Rollno = models.CharField(null=False,max_length=9,default="none")
     Email = models.EmailField(verbose_name='Email',max_length=254,primary_key=True)
     Phone = models.CharField(verbose_name='Phone Number',max_length=254,null=True,blank=True)
 
+    class Meta:
+        unique_together = ('UserName', 'Email')
 
     def __str__(self):
         return "{},{},{}".format(self.Email,self.UserName,self.Rollno)

@@ -21,7 +21,7 @@
 
     <body id="main_body">
       <div class="navbar-fixed">
-        <nav class="red lighten-1 z-depth-3">
+        <nav class="z-depth-3">
           <div class="nav-wrapper container">
             <a href="/" class="waves-effect brand-logo white-text"> Cutting Edge Visinories </a>       
             <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -50,26 +50,63 @@
         
       {% block body_block %}{% endblock %}
 
-   <!--    <footer class="page-footer ">
-         
-          
-            <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        
-        </footer> -->
-      <footer class="page-footer  white-text   red lighten-1 z-depth-3" >
+      <!-- <footer class="page-footer  white-text red lighten-1 z-depth-3" >
         <div class="footer-copyright  white-text   red lighten-1"  style="height:10px">
           
-          <div class="container">
-            <span class="white-text "> <strong> © 2017 Copyright SVNIT </strong>
-              <a class="white-text  right" href="#">  <strong> About </strong> </a>
-            </span>
+          <div class="container"> 
+            <div class="row">
+              <div class="col s3 m6 offset-m1">
+                      <a href="{%url 'Sendmail'%}" class="white-text" title="">SendMail</a>
+                      <a href="{%url 'FillData'%}" class="white-text" title="">New student</a>
+                  
+              </div>
+              <div class="col s9 m4 offset-m1">
+                  <span class="white-text right"> <strong> © 2017 Copyright SVNIT </strong>
+                      <a class="white-text right  " href="#">  <strong> About </strong> </a>
+                  </span>
+              </div>
+            </div>
+            
           </div>
           
         </div>
       </footer>
+ -->
+       <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Cev Official</h5>
+                <p class="grey-text text-lighten-4">This site is build to provide Event Notification in SVNIT regarding upcoming events of CEV</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  {% if user.is_authenticated %}
+                    <li><a class="grey-text text-lighten-3" href="{%url 'Sendmail'%}">SendEmail</a></li>
+                    <li><a class="grey-text text-lighten-3" href="{%url 'FillData'%}">Add Students</a></li>
+                    <li><a class="grey-text text-lighten-3" href="{%url 'FillDataExcel'%}">Add Students using Excel sheet</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://cevgroup.org">CEV SITE</a></li>
+           
+                 {% else %}
+                    <li><a class="grey-text text-lighten-3" href="https://cevgroup.org">CEV SITE</a></li>
+                    <li><a href="#" class="waves-effect white-text">Need Login to access</a></li>
+                 {% endif %}
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2018 Copyright CEV
+            <a class="grey-text text-lighten-4 right" href="#!">About</a>
+            </div>
+          </div>
+        </footer>
+
+
+
 
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

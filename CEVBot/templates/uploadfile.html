@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{%block title%} Cev mail sending bot{%endblock%}
+
+
+{% block body_block %}
+      <div class="section"></div>
+
+<div id="content" class="" style="min-height: calc(100vh - 165px);">
+  <div class="valign-wrapper">
+    <div class="valign" style="width:100%;">
+    {% if messages %}
+              <div class="row" id="messages"> 
+                <div class="col s12 m6 offset-m3">
+                  <ul class="collection green-text center">
+                    
+                      <li class="collection-item"> {{ messages }} </li>
+                    
+                  </ul>
+                </div>
+              </div>
+            {% endif %}
+    {% if message %}
+              <div class="row" id="form_errors"> 
+                  <div class="col s12 m6 offset-m3">
+                     <ul class="collection center red-text">
+                        <li class="collection-item"> {{message}} </li>
+                     </ul>
+                  </div>
+              </div>
+            {% endif %}
+<div class = "container"> 
+  <div class="col s12 m6 offset-m3">
+      <div class="card z-depth-4">
+      <form method="post" enctype="multipart/form-data">
+           {% csrf_token %}
+          <div class="card  black-text text-darken-2 z-depth-2 hoverable middle">
+                      <div class="card-content  teal lighten-1 white-text ">
+                          <span class="card-title center bold"> Add students details(Excel) </span>
+                      </div>
+
+                      <div class="section"> </div>
+
+                      <div class="row">
+                            <div class="input-field col s12 m8 offset-m2">
+                                <label class = "active" for="file"> 
+                                 Excel file
+                                </label>
+                                {{form.file}}
+                            </div>
+                        </div>
+
+              <div class="section">               
+              </div>
+                    <div class="center">
+                         <button type="submit" class="waves-effect waves-light btn" value="submit">Submit
+                         <i class=" material-icons right">send</i>
+                           </button>
+                        </div>
+                        <div class="section"> </div>
+
+                        <div class="row">
+                          <div class="col s10 m10 offset-m1">
+                       
+                          <ul class="collapsible" data-collapsible="accordion">
+                            <li>
+                              <div class="collapsible-header">
+                                <i class="material-icons">comment</i>
+                                RULES
+                                <span class="new badge">3</span></div>
+                              <div class="collapsible-body"><p>Provide Excel sheet with details of UserName, Rollno, Email, Phone and Year with proper spelling.</p></div>
+                              <div class="collapsible-body"><p>Year should be 1 , 2 ,3 , 4 or 5. If you donot know then enter the value as 0. Dont leave it blank.</p></div>
+                              <div class="collapsible-body"><p>if any error occurs the form will display it after verification on the top.Repitaion of data doesnot effect the form.</p></div>
+                            </li>
+                          </ul>
+                         </div>     
+                         </div>
+                        <div class="section"> </div>
+                        
+              </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+
+
+
+{% endblock %}
