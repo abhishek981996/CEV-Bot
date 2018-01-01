@@ -26,49 +26,13 @@ def Login(request):
 		if user is not None:
 			login(request, user)
 			return redirect(Sendmail)
-		message = "Login falied,error login"
+		message = "Login failed,error login"
 		return render(request,"login.html",{'message':message})
 	elif request.user.is_authenticated:
 		return redirect(Sendmail)
 	else:
 		return render(request,"login.html")
 		
-	# try:
-	# 	username = str(data[Constant.Username])
-	# except:
-	# 	return HttpResponse("username not provided")
-
-	# try:
-	# 	email = str(data[Constant.Email])
-	# except:
-	# 	return HttpResponse("email not provided")
-	
-	# try:
-	# 	phone = str(data[Constant.Phone])
-	# except:
-	# 	phone = str(Constant.empty)
-
-	# try:
-	# 	year = int(data[Constant.Year])
-	# except:
-	# 	year = 2015
-	# try:
-	# 	rollno = str(data[Constant.Rollno])
-			
-	# except:
-	# 	rollno = ""	
-	# newuser = Users.objects.create(UserName = username,Email=email,Phone=phone,Rollno=rollno,Year=year)
-	# newuser.save()
-
-	# json_form = json.dumps({Constant.Username:newuser.UserName,
-	# 			Constant.Year:newuser.Year,
-	# 			Constant.Rollno:newuser.Rollno,
-	# 			Constant.Email:newuser.Email,
-	# 			Constant.Phone:newuser.Phone})
-	# print(json_form)
-
-	# return HttpResponse(json_form,content_type=Constant.content_type)
-
 def Logout(request):
 	logout(request)
 	return redirect(Login)
