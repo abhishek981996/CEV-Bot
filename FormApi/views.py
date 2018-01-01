@@ -25,7 +25,7 @@ def Login(request):
 		user = authenticate(request, username=username, password=password)
 		if user is not None:
 			login(request, user)
-			return redirect("/Sendmail")
+			return redirect(Sendmail)
 		message = "Login falied,error login"
 		return render(request,"login.html",{'message':message})
 	elif request.user.is_authenticated:
