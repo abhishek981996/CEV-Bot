@@ -165,7 +165,7 @@ def FillDataExcel(request):
 
 
 def Email(userlist,subject,body):
-	tag_open = """<pre>"""
+	tag_open = """<pre style = "font-family:Arial">"""
 	tag_close = """</pre>"""
 	tag_open+= body
 	tag_open+=tag_close 
