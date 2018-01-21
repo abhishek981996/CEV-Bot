@@ -169,6 +169,7 @@ def Email(userlist,subject,body):
 	tag_close = """</pre>"""
 	tag_open+= body
 	tag_open+=tag_close 
+	tag_open+=Body
 	body = tag_open
 	for user in userlist:
 		email1 = user.Email
