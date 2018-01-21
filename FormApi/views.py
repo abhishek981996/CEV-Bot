@@ -168,6 +168,7 @@ def Email(userlist,subject,body):
 	for user in userlist:
 		email1 = user.Email
 		email = EmailMessage(subject,body,to=[email1])
+		email.content_subtype = "html"
 		value = email.send()
 
 
