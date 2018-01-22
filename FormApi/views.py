@@ -239,7 +239,7 @@ def Excel(array):
 		rollno = row[rollno_index]
 		try:
 			try:
-				newuser = Users.objects.get(UserName = username,Email=email)
+				newuser = Users.objects.get(Email=email)
 			except:
 				newuser = Users.objects.create(UserName = username,Email=email,Phone=phone,Rollno=rollno,Year=year)
 				newuser.save()
