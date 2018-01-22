@@ -248,7 +248,7 @@ def Excel(array):
 
 
 	if errorlist:
-		message = "Error creating student details for username " +errorlist[0]
+		message = "Error creating student details for email " +errorlist[1]
 		return message
 	else:
 		return 1
