@@ -195,6 +195,7 @@ def Email(userlist,subject,body):
 	body+= str(errorlist)
 
 	email = EmailMessage(subject,body,to=admin)
+	email.send()
 			
 
 
