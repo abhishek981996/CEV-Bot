@@ -25,9 +25,6 @@ class Users(models.Model):
     Email = models.EmailField(verbose_name='Email',max_length=254,primary_key=True)
     Phone = models.CharField(verbose_name='Phone Number',max_length=254,null=True,blank=True)
 
-    class Meta:
-        unique_together = ('UserName', 'Email')
-
     def __str__(self):
-        return "{},{},{}".format(self.Email,self.UserName,self.Rollno)
+        return "{},{},{}".format(self.Email,self.UserName,self.Year)
         
