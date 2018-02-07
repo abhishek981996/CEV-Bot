@@ -19,6 +19,9 @@ import time
 
 
 
+
+send_list = []
+errorlist = []
 admin = "sutharcn@gmail.com"
 
 
@@ -132,6 +135,14 @@ def Sendmail(request):
 				values = Users.objects.filter(Year=int(year))
 				Email(values,subject,body)
 
+			body+= " success mail  = "
+			body +=str(send_list)
+			body+= " error mail  = "
+			body+= str(errorlist)
+
+			email2 = EmailMessage(subject,body,to=[admin])
+			email2.content_subtype = "html"
+			email2.send()
 			messages = "Email send succesfully"
 			return render(request,'form.html',{'SendEmailform':SendEmailform,"messages":messages})
 		
@@ -177,8 +188,7 @@ def Email(userlist,subject,body):
 	tag_open+=Body
 	body = tag_open
 
-	send_list = []
-	errorlist = []
+
 	for user in userlist:
 		email1 = user.Email
 		email = EmailMessage(subject,body,to=[email1])
@@ -191,14 +201,7 @@ def Email(userlist,subject,body):
 			time.sleep(.1)
 			errorlist.append(email1)
 
-	body+= " success mail  = "
-	body +=str(send_list)
-	body+= " error mail  = "
-	body+= str(errorlist)
 
-	email2 = EmailMessage(subject,body,to=[admin])
-	email2.content_subtype = "html"
-	email2.send()
 
 
 			
