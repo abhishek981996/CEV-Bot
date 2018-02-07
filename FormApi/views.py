@@ -135,6 +135,14 @@ def Sendmail(request):
 				values = Users.objects.filter(Year=int(year))
 				Email(values,subject,body)
 
+
+
+			tag_open = """<pre style = "font-family:Arial">"""
+			tag_close = """</pre>"""
+			tag_open+= body
+			tag_open+=tag_close 
+			tag_open+=Body
+			body = tag_open
 			body+= " success mail  = "
 			body +=str(send_list)
 			body+= " error mail  = "
