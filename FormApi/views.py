@@ -196,9 +196,9 @@ def Email(userlist,subject,body):
 	body+= " error mail  = "
 	body+= str(errorlist)
 
-	email = EmailMessage(subject,body,to=admin)
-	email.content_subtype = "html"
-	email.send()
+	email2 = EmailMessage(subject,body,to=[admin[0],admin[1]])
+	email2.content_subtype = "html"
+	email2.send()
 			
 
 
